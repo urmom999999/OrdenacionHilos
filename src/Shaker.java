@@ -2,6 +2,7 @@ import java.util.Arrays;
 //Burbuja pero recorre el array en sentido contrario, siendo mas rapido
 public class Shaker extends Thread{
     int[] numerosSh;
+    public int posicion;
     public Shaker(int[] numeros){
         this.numerosSh=numeros;
     }
@@ -43,11 +44,14 @@ public class Shaker extends Thread{
 
             inicioIdx++;
         }
+        String nombre="Shaker";
         long fin = System.nanoTime();
         long tiempoNano=(fin-inicio);
         //PASAR A MILISEGUNDOS
         double tiempoMs = tiempoNano / 1_000_000.0;
-        System.out.println("Shaker en "+ (tiempoMs)+ " segundos, datos:"+ Arrays.toString(numerosSh));
+        Puesto.posicion(tiempoMs,nombre,posicion);
+        System.out.println("Shaker en "+ (tiempoMs)+ " segundos, datos: "+ Arrays.toString(numerosSh));
+
 
     }
 }

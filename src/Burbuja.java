@@ -2,6 +2,7 @@ import java.util.Arrays;
 //Compara los valores con el siguiente cambiando su posicion
 public class Burbuja extends Thread{
     int[] numerosjs;
+    public int posicion;
 public Burbuja(int[] numeros){
     this.numerosjs=numeros;
 }
@@ -19,12 +20,17 @@ public void run(){
             }
         }
     }
+
     //TERMINAR DE CONTAR
     long fin = System.nanoTime();
+    String nombre="Burbuja";
     long tiempoNano=(fin-inicio);
     //PASAR A MILISEGUNDOS
     double tiempoMs = tiempoNano / 1_000_000.0;
-    System.out.println("Burbuja en "+ (tiempoMs)+ " segundos, datos:"+Arrays.toString(numerosjs) );
+    Puesto.posicion(tiempoMs,nombre,posicion);
+    System.out.println("Burbuja en "+ (tiempoMs)+ " segundos, datos: "+Arrays.toString(numerosjs) );
+
+
 
 }
 }

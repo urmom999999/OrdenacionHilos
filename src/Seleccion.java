@@ -3,6 +3,7 @@ import java.util.Arrays;
 
 public class Seleccion extends Thread{
     int[] numerossl;
+    public int posicion;
     public Seleccion(int[] numeros){
         this.numerossl=numeros;
     }
@@ -20,11 +21,15 @@ public class Seleccion extends Thread{
             numerossl[minIndex] = numerossl[i];
             numerossl[i] = temp;
         }
+        String nombre="Seleccion";
         long fin = System.nanoTime();
         long tiempoNano=(fin-inicio);
         //PASAR A MILISEGUNDOS
         double tiempoMs = tiempoNano / 1_000_000.0;
-        System.out.println("Seleccion en "+ (tiempoMs)+ " segundos, datos:"+Arrays.toString(numerossl));
+        Puesto.posicion(tiempoMs,nombre,posicion);
+        System.out.println("Seleccion en "+ (tiempoMs)+ " segundos, datos: "+Arrays.toString(numerossl));
+
+
     }
 }
 
